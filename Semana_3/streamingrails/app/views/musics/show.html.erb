@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @music.name %>
+</p>
+
+<p>
+  <strong>Explicita:</strong>
+  <%= @music.explicit %>
+</p>
+
+<p>
+  <strong>Álbum:</strong>
+  <%= @music.album.name %>
+</p>
+
+<p>
+  <strong>Gênero:</strong>
+  <%= @music.gender.name %>
+</p>
+
+<%= link_to 'Editar', edit_music_path(@music) %> |
+<%= link_to 'Voltar', musics_path %>

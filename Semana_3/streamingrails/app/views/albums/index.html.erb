@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Álbuns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Artista</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @albums.each do |album| %>
+      <tr>
+        <td><%= album.name %></td>
+        <td><%= album.artist %></td>
+        <td><%= link_to 'Mostrar', album %></td>
+        <td><%= link_to 'Editar', edit_album_path(album) %></td>
+        <td><%= link_to 'Deletar', album, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo álbum', new_album_path %> |
+<%= link_to 'Ir para músicas', musics_path %>

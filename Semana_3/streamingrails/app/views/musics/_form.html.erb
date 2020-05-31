@@ -1,0 +1,37 @@
+<%= form_with(model: music, local: true) do |form| %>
+  <% if music.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(music.errors.count, "error") %> prohibited this music from being saved:</h2>
+
+      <ul>
+      <% music.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, 'Nome' %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :explicit, 'Explicita' %>
+    <%= form.check_box :explicit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :album_id, 'Álbum' %>
+    <%= form.select :album_id, options_for_select(@albums.map{|album| [album.name, album.id]}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender_id, 'Gênero' %>
+    <%= form.select :gender_id, options_for_select(@genders.map{|gender| [gender.name, gender.id]}) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Aplicar' %>
+  </div>
+<% end %>

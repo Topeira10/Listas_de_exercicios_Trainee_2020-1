@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @album.name %>
+</p>
+
+<p>
+  <strong>Artista:</strong>
+  <%= @album.artist %>
+</p>
+
+<table>
+  <strong>Músicas:</strong>
+  <thead>
+  <tr>
+    <th>Nome</th>
+    <th>Explicita</th>
+    <th>Gênero</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @songs.each do |song| %>
+    <tr>
+      <td><%= song.name %></td>
+      <td><%= song.explicit %></td>
+      <td><%= song.gender.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+<%= link_to 'Adicionar musica', new_music_path %> |
+<%= link_to 'Editar', edit_album_path(@album) %> |
+<%= link_to 'Voltar para álbuns', albums_path %>
